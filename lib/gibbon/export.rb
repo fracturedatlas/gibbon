@@ -19,7 +19,7 @@ module Gibbon
 
       api_url = export_api_url + method + "/"
       params = @default_params.merge(params).merge({:apikey => @api_key})
-      response = self.class.post(api_url, :body => MultiJson.dump(params), :timeout => @timeout)
+      response = self.class.post(api_url, :body => params, :timeout => @timeout)
 
       lines = response.body.lines
       if @throws_exceptions
